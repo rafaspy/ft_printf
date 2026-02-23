@@ -31,11 +31,43 @@ int ft_putstr(char *str)
 	return (i);
 }
 
+int ft_putnbr(int n)
+{
+	long	num;
+	char	res[12];
+	int		i;
+	int		count;
+
+	count = 0;
+	num = n;
+	i = 0;
+	if (num == 0)
+		return (write(1, "0", 1));
+	if (num < 0)
+	{
+		num = -num;
+		count += write(1, "-", 1);
+	}
+	while (num > 0)
+	{
+		res[i++] = num % 10 + '0';
+		num = num / 10;
+	}
+	while (i > 0)
+		count += write(1, &res[--i], 1);
+	return (count);
+}
+
 int ft_format(char c, va_list args)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
+	if (c == 'd' || c == 'i')
+	{
+		return (ft_putnbr(va_arg(args, int)));
+	}
+
 	return (0);
 }
