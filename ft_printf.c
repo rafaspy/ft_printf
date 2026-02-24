@@ -13,11 +13,11 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int ft_printf(char const *format, ...)
+int	ft_printf(char const *format, ...)
 {
-	va_list args;
-	int count;
-	int i;
+	va_list	args;
+	int		count;
+	int		i;
 
 	i = 0;
 	count = 0;
@@ -34,12 +34,11 @@ int ft_printf(char const *format, ...)
 		i++;
 	}
 	va_end(args);
-	return count;
+	return (count);
 }
-
-int main(void)
+/*int	main(void)
 {
 	char *frase = "hola mundo";
 
 	printf("quiero ver que pasa si pongo %s y sigo escribiendo", frase);
-}
+}*/

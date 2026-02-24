@@ -12,14 +12,14 @@
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -31,7 +31,7 @@ int ft_putstr(char *str)
 	return (i);
 }
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	long	num;
 	char	res[12];
@@ -58,7 +58,7 @@ int ft_putnbr(int n)
 	return (count);
 }
 
-int ft_format(char c, va_list args)
+int	ft_format(char c, va_list args)
 {
 	if (c == 'c')
 		return (ft_putchar(va_arg(args, int)));
@@ -68,6 +68,5 @@ int ft_format(char c, va_list args)
 	{
 		return (ft_putnbr(va_arg(args, int)));
 	}
-
 	return (0);
 }
