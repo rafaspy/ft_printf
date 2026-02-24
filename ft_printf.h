@@ -20,4 +20,5 @@
 int	ft_printf(const char *format, ...);
 int	ft_format(char c, va_list args);
 
+
 #endif
