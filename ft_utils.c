@@ -29,7 +29,26 @@ int	ft_putunsigned(unsigned int n)
 	}
 	while (i > 0)
 	{
-		count += write(1, &res[--i],1);
+		count += write(1, &res[--i], 1);
 	}
 	return (count);
+}
+
+int	ft_puthex(unsigned long n, char *base)
+{
+	int	count;
+
+	count = 0;
+	if (n >= 16)
+		count += ft_puthex(n / 16, base);
+	count += write(1, &base[n % 16], 1);
+	return (count);
+}
+
+int	ft_putptr(void *ptr)
+{
+	if (!ptr)
+		return (write(1, "(nil)", 5));
+	write(1, "0x", 2);
+	return (2 + ft_puthex((unsigned long)ptr, "0123456789abcdef"));
 }

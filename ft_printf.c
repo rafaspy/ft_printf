@@ -36,9 +36,3 @@ int	ft_printf(char const *format, ...)
 	va_end(args);
 	return (count);
 }
-/*int	main(void)
-{
-	char *frase = "hola mundo";
-
-	printf("quiero ver que pasa si pongo %s y sigo escribiendo", frase);
-}*/

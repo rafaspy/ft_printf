@@ -65,8 +65,16 @@ int	ft_format(char c, va_list args)
 	if (c == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	if (c == 'd' || c == 'i')
-	{
 		return (ft_putnbr(va_arg(args, int)));
-	}
+	if (c == 'u')
+		return (ft_putunsigned(va_arg(args, unsigned int)));
+	if (c == 'x')
+		return (ft_puthex(va_arg(args, unsigned int), "0123456789abcdef"));
+	if (c == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), "0123456789ABCDEF"));
+	if (c == 'p')
+		return (ft_putptr(va_arg(args, void *)));
+	if (c == '%')
+		return (write(1, "%", 1));
 	return (0);
 }
