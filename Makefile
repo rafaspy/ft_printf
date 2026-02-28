@@ -19,6 +19,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(FTPRINTF_OBJS) $(LIBFT)
+	cp $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(FTPRINTF_OBJS)
 
 %.o: %.c ft_printf.h
