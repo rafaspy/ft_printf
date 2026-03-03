@@ -1,0 +1,4 @@
+Hola mundo 42 ! %
+Hola mundo 42 ! %
+ft_printf devuelve: 18
+printf devuelve:    18
